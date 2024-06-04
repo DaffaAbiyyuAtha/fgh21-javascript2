@@ -1,4 +1,4 @@
-const name = [
+const names = [
   "Abigail",
   "Alexandra",
   "Alison",
@@ -14,5 +14,22 @@ const name = [
   "Ella",
   "Faith",
   "Penolope",
-  "ando,",
 ];
+function searchName(parameter, limit, callback) {
+  let result = [];
+  for (let i = 0; i < names.length; i++) {
+    if (names[i].toLowerCase().indexOf(parameter.toLowerCase()) > -1) {
+      result.push(names[i]);
+      if (result.length == limit) {
+        break;
+      }
+    }
+  }
+  callback(result);
+}
+
+function printNama(result) {
+  console.log(result);
+}
+
+searchName("an", 3, printNama);
